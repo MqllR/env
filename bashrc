@@ -1,3 +1,9 @@
+## Bash history
+HISTTIMEFORMAT="%d/%m/%y %T "
+HISTCONTROL=ignoreboth
+HISTSIZE=5000
+HISTFILESIZE=5000
+
 ## Functions
 ##########
 
@@ -24,7 +30,10 @@ PS1="\$(cmd_return=\$?; if [[ \$cmd_return == 0 ]]; then echo \"\[\033[01;37m\]\
 
 ## ALIAS
 ##########
+alias ll='ls -lah --color=auto'
+alias grep='grep --color=auto'
 alias rgrep="grep -r"
+alias egrep='egrep'
 
 # Tmux
 alias tmc="tmux new-session -s mql"
