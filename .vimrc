@@ -1,6 +1,7 @@
 syntax on
 set encoding=utf-8
 set background=dark
+set belloff=all
 
 highlight BadWhitespace ctermbg=red guibg=red
 
