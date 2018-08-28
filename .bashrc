@@ -51,3 +51,11 @@ alias gf='git fetch'
 alias gb='git branch'
 alias gps="git push"
 alias gpu="git pull"
+
+# Load specific scripts like creds ;)
+if [ -d ${HOME}/.bashrc.d ]; then
+    shopt -s nullglob
+    for f in ${HOME}/.bashrc.d/*.sh; do
+      source $f
+    done
+fi
