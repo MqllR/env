@@ -1,14 +1,15 @@
 require 'rake'
 
+bashrc_dir = File.join(Dir.home, ".bashrc.d")
 source_files = Rake::FileList.new(".*") do |fl|
   fl.exclude(".")
   fl.exclude("..")
   fl.exclude(".git")
 end 
 
-task :default => :symlink
+task :default => [:symlink, :bashrc]
 
-desc "create dotfiles symlink into user's home directory"
+desc "Link environment config file to user's home directory"
 task :symlink do
   source_files.each do |f|
     src = File.join(Dir.pwd, f)
@@ -20,3 +21,9 @@ task :symlink do
     symlink src, dest
   end
 end
+
+desc "Create .bashrc.d directory"
+task :bashrc => bashrc_dir
+
+# Directory task refer to :bashrc
+directory bashrc_dir
