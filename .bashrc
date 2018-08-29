@@ -4,6 +4,10 @@ HISTCONTROL=ignoreboth
 HISTSIZE=5000
 HISTFILESIZE=5000
 
+## Environment variables
+#########
+export EDITOR=$(which vim)
+
 ## Functions
 ##########
 
