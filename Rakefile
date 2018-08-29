@@ -5,9 +5,9 @@ source_files = Rake::FileList.new(".*") do |fl|
   fl.exclude(".")
   fl.exclude("..")
   fl.exclude(".git")
-end 
+end
 
-task :default => [:symlink, :bashrc]
+task :default => [:gpull, :symlink, :bashrc]
 
 desc "Link environment config file to user's home directory"
 task :symlink do
@@ -27,3 +27,8 @@ task :bashrc => bashrc_dir
 
 # Directory task refer to :bashrc
 directory bashrc_dir
+
+# Exec a tiny git pull
+task :gpull do
+  sh "git pull", { verbose: false }
+end
