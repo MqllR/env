@@ -55,15 +55,15 @@ au         BufNewFile *.html set fileformat=unix
 au BufRead,BufNewFile *.html let b:comment_leader = '<!--'
 
 " YAML
-au BufRead,BufNewFile *.yaml,*.yml set expandtab
-au BufRead,BufNewFile *.yaml,*.yml set tabstop=2
-au BufRead,BufNewFile *.yaml,*.yml set softtabstop=2
-au BufRead,BufNewFile *.yaml,*.yml set shiftwidth=2
-au BufRead,BufNewFile *.yaml,*.yml set autoindent
-au BufRead,BufNewFile *.yaml,*.yml match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.yaml,*.yml match BadWhitespace /\s\+$/
-au         BufNewFile *.yaml,*.yml set fileformat=unix
-au BufRead,BufNewFile *.yaml,*.yml let b:comment_leader = '#'
+au BufRead,BufNewFile *.yaml,*.yml,*.json set expandtab
+au BufRead,BufNewFile *.yaml,*.yml,*.json set tabstop=2
+au BufRead,BufNewFile *.yaml,*.yml,*.json set softtabstop=2
+au BufRead,BufNewFile *.yaml,*.yml,*.json set shiftwidth=2
+au BufRead,BufNewFile *.yaml,*.yml,*.json set autoindent
+au BufRead,BufNewFile *.yaml,*.yml,*.json match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.yaml,*.yml,*.json match BadWhitespace /\s\+$/
+au         BufNewFile *.yaml,*.yml,*.json set fileformat=unix
+au BufRead,BufNewFile *.yaml,*.yml,*.json let b:comment_leader = '#'
 
 " Web
 au BufRead,BufNewFile *.js set expandtab
