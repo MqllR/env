@@ -18,7 +18,7 @@ docktag() {
         exit 1
     fi
 
-    curl -s 'https://registry.hub.docker.com/v2/repositories/$1/tags/' | jq '."results"[]["name"]'
+    curl -s 'https://registry.hub.docker.com/v2/repositories/$1/tags/' | jq '.results[].name'
 }
 
 git() {
