@@ -62,4 +62,6 @@ if [ -d ${HOME}/.bashrc.d ]; then
     for f in ${HOME}/.bashrc.d/*.sh; do
       source $f
     done
+
+    shopt -u nullglob
 fi
