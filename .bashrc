@@ -37,7 +37,6 @@ PS1="\$(cmd_return=\$?; if [[ \$cmd_return == 0 ]]; then echo \"\[\033[01;37m\]\
 alias ll='ls -lah --color=auto'
 alias grep='grep --color=auto'
 alias rgrep="grep -r"
-alias egrep='egrep'
 
 # Tmux
 alias tmc="tmux new-session -s mql"
@@ -49,12 +48,14 @@ alias ga="git add"
 alias gr="git rm"
 alias gs="git status"
 alias gc="git commit -m"
+alias gco="git checkout"
 alias gd='git diff'
 alias gl='git log'
 alias gf='git fetch'
 alias gb='git branch'
 alias gps="git push"
 alias gpu="git pull"
+alias ggrep="git grep"
 
 # Load specific scripts like creds ;)
 if [ -d ${HOME}/.bashrc.d ]; then
