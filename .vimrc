@@ -7,12 +7,6 @@ set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight BadWhitespace ctermbg=red guibg=red
 
-" netrw visual
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 2
-let g:netrw_winsize = 25
-
 " no temp or backup files
 set noswapfile
 set nobackup
@@ -75,3 +69,19 @@ nmap oo o<Esc>k
 nmap OO O<Esc>j
 
 nmap <F5>p :call PyHeader()<CR>
+
+""" Vundle plugin manager
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+
+call vundle#end()
+filetype plugin indent on
+
+""" Plugin config
+map <C-o> :NERDTreeToggle<CR>
