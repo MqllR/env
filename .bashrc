@@ -60,7 +60,7 @@ alias ggrep="git grep"
 # Load specific scripts like creds ;)
 if [ -d ${HOME}/.bashrc.d ]; then
     shopt -s nullglob
-    for f in ${HOME}/.bashrc.d/*.sh; do
+    for f in ${HOME}/.bashrc.d/*; do
       source $f
     done
 

@@ -1,3 +1,9 @@
+## Powerline line setup
+
+```
+curl https://raw.githubusercontent.com/bcmarinacci/powerline-shell/master/powerline-shell.bash > ~/.bashrc.d/powerline-shell.bash
+```
+
 ## Vim install
 #### Install
 
