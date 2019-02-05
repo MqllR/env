@@ -24,6 +24,7 @@ au            BufRead *.rb set fileformat=unix
 au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 au BufRead,BufNewFile *.py let b:comment_leader = '#'
+au BufRead,BufNewFile *.py let b:first_line = '# -*- encoding: utf-8 -*-'
 
 " Ruby
 au BufNewFile,BufRead *.rb set textwidth=79
@@ -32,6 +33,7 @@ au            BufRead *.rb set fileformat=unix
 au BufRead,BufNewFile *.rb match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.rb match BadWhitespace /\s\+$/
 au BufRead,BufNewFile *.rb let b:comment_leader = '#'
+au BufRead,BufNewFile *.rb let b:first_line= '# frozen_string_literal: true'
 
 " HTML
 au BufRead,BufNewFile *.html set filetype=xml
@@ -47,6 +49,7 @@ au BufRead,BufNewFile *.yaml,*.yml,*.json match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.yaml,*.yml,*.json match BadWhitespace /\s\+$/
 au         BufNewFile *.yaml,*.yml,*.json set fileformat=unix
 au BufRead,BufNewFile *.yaml,*.yml let b:comment_leader = '#'
+au BufRead,BufNewFile *.yaml,*.yml let b:first_line = '---'
 
 " Web
 au BufRead,BufNewFile *.js set autoindent
@@ -59,16 +62,15 @@ noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR
 noremap <silent> uc :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
 
-fu! PyHeader()
-  exec("normal gg O#!/usr/bin/env python\n\n")
-  exec("normal a# -*- encoding: utf-8 -*-\n\n")
+fu! Header()
+  call append(0, b:first_line)
 endf
 
 " Just add a newline before / after
 nmap oo o<Esc>k
 nmap OO O<Esc>j
 
-nmap <F5>p :call PyHeader()<CR>
+nmap <F5>p :call Header()<CR>
 
 """ Vundle plugin manager
 set nocompatible              " be iMproved, required
