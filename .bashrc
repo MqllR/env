@@ -57,6 +57,12 @@ alias gps="git push"
 alias gpu="git pull"
 alias ggrep="git grep"
 
+# Kubernetes
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias ke='kubectl exec -it'
+alias kl='kubectl logs'
+
 # Load specific scripts like creds ;)
 if [ -d ${HOME}/.bashrc.d ]; then
     shopt -s nullglob
