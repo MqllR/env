@@ -58,18 +58,29 @@ au BufRead,BufNewFile *.js match BadWhitespace /\s\+$/
 au         BufNewFile *.js set fileformat=unix
 au BufRead,BufNewFile *.js let b:comment_leader = '//'
 
+" Comment
 noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> uc :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
+
+" Tab manipulation
+nnoremap tn  :tabnew<CR>
+nnoremap td  :tabclose<CR>
+nnoremap th  :tabfirst<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tf  :tabfind<Space>
+nnoremap tm  :tabm<Space>
 
 fu! Header()
   call append(0, b:first_line)
 endf
 
-" Just add a newline before / after
+" Useful shortcut
+noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
-
 nmap <F5>p :call Header()<CR>
 
 """ Vundle plugin manager
