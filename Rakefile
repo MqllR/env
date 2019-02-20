@@ -1,34 +1,52 @@
 require 'rake'
 
-bashrc_dir = File.join(Dir.home, ".bashrc.d")
-source_files = Rake::FileList.new(".*") do |fl|
-  fl.exclude(".")
-  fl.exclude("..")
-  fl.exclude(".git")
-end
+def safe_symlink! path
+  src = File.join(Dir.pwd, 'dotfiles',  path)
+  dest = File.join(Dir.home, path)
 
-task :default => [:gpull, :symlink, :bashrc]
-
-desc "Link environment config file to user's home directory"
-task :symlink do
-  source_files.each do |f|
-    src = File.join(Dir.pwd, f)
-    dest = File.join(Dir.home, f)
-    next if File.symlink? dest
-    if File.exist?(dest) && !File.symlink?(dest)
-      mv dest, "#{dest + '.backup-' + Time.now.strftime('%Y-%m-%d_%R')}"
-    end
-    symlink src, dest
+  return if File.symlink?(dest)
+  if File.exist?(dest) && !File.symlink?(dest)
+    mv dest, "#{dest + '.backup-' + Time.now.strftime('%Y-%m-%d_%R')}"
   end
+  symlink src, dest unless File.exist?(dest)
 end
 
-desc "Create .bashrc.d directory"
-task :bashrc => bashrc_dir
+task :default => [:vim, :bash, :tmux, :irb]
 
-# Directory task refer to :bashrc
-directory bashrc_dir
+VUNDLE_DIR = File.join(Dir.home, '.vim/bundle/Vundle.vim/')
+directory VUNDLE_DIR
 
-# Exec a tiny git pull
-task :gpull do
-  sh "git pull", { verbose: false }
+desc 'Setup the vim environment'
+task :vim => VUNDLE_DIR do
+  safe_symlink! '.vimrc'
+
+  # Install Vundle
+  begin
+    require 'git'
+    g = Git.open(VUNDLE_DIR)
+    g.pull
+  rescue ArgumentError
+    Git.clone('https://github.com/VundleVim/Vundle.vim.git', VUNDLE_DIR)
+  end
+
+  # Install plugins
+  sh "vim +PluginInstall +qall"
+end
+
+BASHRC_DIR = File.join(Dir.home, ".bashrc.d")
+directory BASHRC_DIR
+
+desc 'Setup the bash environment'
+task :bash => BASHRC_DIR do
+  safe_symlink! '.bashrc'
+end
+
+desc 'Setup the tmux environment'
+task :tmux do
+  safe_symlink! '.tmux.conf'
+end
+
+desc 'Setup the irb environment'
+task :irb do
+  safe_symlink! '.irbrc'
 end

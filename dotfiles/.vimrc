@@ -20,20 +20,20 @@ set expandtab
 " Python
 au BufNewFile,BufRead *.py set textwidth=79
 au BufNewFile,BufRead *.py set autoindent
-au            BufRead *.rb set fileformat=unix
+au            BufRead *.py set fileformat=unix
 au BufRead,BufNewFile *.py match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 au BufRead,BufNewFile *.py let b:comment_leader = '#'
 au BufRead,BufNewFile *.py let b:first_line = '# -*- encoding: utf-8 -*-'
 
 " Ruby
-au BufNewFile,BufRead *.rb set textwidth=79
-au BufNewFile,BufRead *.rb set autoindent
-au            BufRead *.rb set fileformat=unix
-au BufRead,BufNewFile *.rb match BadWhitespace /^\t\+/
-au BufRead,BufNewFile *.rb match BadWhitespace /\s\+$/
-au BufRead,BufNewFile *.rb let b:comment_leader = '#'
-au BufRead,BufNewFile *.rb let b:first_line= '# frozen_string_literal: true'
+au BufNewFile,BufRead *.rb,*.rake,Rakefile set textwidth=79
+au BufNewFile,BufRead *.rb,*.rake,Rakefile set autoindent
+au            BufRead *.rb,*.rake,Rakefile set fileformat=unix
+au BufRead,BufNewFile *.rb,*.rake,Rakefile match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.rb,*.rake,Rakefile match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.rb,*.rake,Rakefile let b:comment_leader = '#'
+au BufRead,BufNewFile *.rb,*.rake,Rakefile let b:first_line= '# frozen_string_literal: true'
 
 " HTML
 au BufRead,BufNewFile *.html set filetype=xml
