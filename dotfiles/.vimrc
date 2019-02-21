@@ -92,6 +92,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 call vundle#end()
 filetype plugin indent on
