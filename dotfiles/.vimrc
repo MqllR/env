@@ -79,6 +79,8 @@ endf
 
 " Useful shortcut
 noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
+noremap cn :cn<CR>
+noremap cp :cp<CR>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
 nmap <F5>p :call Header()<CR>
