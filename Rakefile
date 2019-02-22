@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rake'
 
 def safe_symlink! path
@@ -39,6 +40,13 @@ directory BASHRC_DIR
 desc 'Setup the bash environment'
 task :bash => BASHRC_DIR do
   safe_symlink! '.bashrc'
+
+  require 'open-uri'
+  open File.join(BASHRC_DIR, 'powerline-shell.bash'), 'wb' do |file|
+    open 'https://raw.githubusercontent.com/bcmarinacci/powerline-shell/master/powerline-shell.bash' do |uri|
+      file.write uri.read
+    end
+  end
 end
 
 desc 'Setup the tmux environment'
