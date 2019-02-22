@@ -46,7 +46,9 @@ alias tmk="tmux kill-session -t mql"
 # Git
 alias ga="git add"
 alias gr="git rm"
+alias gre="git reset"
 alias gs="git status"
+alias gsh="git show"
 alias gc="git commit -m"
 alias gco="git checkout"
 alias gd='git diff'
