@@ -59,6 +59,16 @@ alias gps="git push"
 alias gpu="git pull"
 alias ggrep="git grep"
 
+# Git auto-completion
+__git_complete gco _git_checkout
+__git_complete gps _git_push
+__git_complete gpu _git_pull
+__git_complete gb _git_branch
+__git_complete ga _git_add
+__git_complete gr _git_rm
+__git_complete gf _git_fetch
+__git_complete gd _git_diff
+
 # Kubernetes
 alias kg='kubectl get'
 alias kd='kubectl describe'
