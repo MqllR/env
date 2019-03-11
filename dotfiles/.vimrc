@@ -3,6 +3,7 @@ set encoding=utf-8
 set background=dark
 set belloff=all
 set number
+set scrolloff=3
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight BadWhitespace ctermbg=red guibg=red
