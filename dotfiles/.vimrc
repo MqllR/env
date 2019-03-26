@@ -96,9 +96,22 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
 
 call vundle#end()
 filetype plugin indent on
 
 """ Plugin config
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor_light',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 map <C-o> :NERDTreeToggle<CR>
