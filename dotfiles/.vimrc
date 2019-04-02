@@ -13,6 +13,10 @@ set noswapfile
 set nobackup
 set nowritebackup
 
+" Hidden char
+set list
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -73,6 +77,15 @@ nnoremap tl  :tablast<CR>
 nnoremap tt  :tabedit<Space>
 nnoremap tf  :tabfind<Space>
 nnoremap tm  :tabm<Space>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
 
 fu! Header()
   call append(0, b:first_line)
