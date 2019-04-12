@@ -78,6 +78,16 @@ alias kd='kubectl describe'
 alias ke='kubectl exec -it'
 alias kl='kubectl logs'
 
+# Load custom completion scripts
+if [ -d ${HOME}/.bash_completion.d ]; then
+    shopt -s nullglob
+    for f in ${HOME}/.bash_completion.d/*; do
+      source $f
+    done
+
+    shopt -u nullglob
+fi
+
 # Load specific scripts like creds ;)
 if [ -d ${HOME}/.bashrc.d ]; then
     shopt -s nullglob

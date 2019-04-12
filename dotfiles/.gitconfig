@@ -1,0 +1,8 @@
+[core]
+  editor = vim
+[merge]
+  tool = vimdiff
+[alias]
+  undo = git reset --soft HEAD^
+  oneline = log --pretty=oneline --abbrev-commit --graph --decorate
+  amend = commit --amend
