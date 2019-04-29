@@ -12,9 +12,20 @@ def safe_symlink! path
   symlink src, dest unless File.exist?(dest)
 end
 
+def download_files(url, path)
+  require 'open-uri'
+  open path, 'wb' do |file|
+    open url do |uri|
+      file.write uri.read
+    end
+  end
+end
+
 task :default => [:vim, :bash, :tmux, :irb]
 
+#########
 ## Vim
+################
 VUNDLE_DIR = File.join(Dir.home, '.vim/bundle/Vundle.vim/')
 directory VUNDLE_DIR
 
@@ -35,7 +46,9 @@ task :vim => VUNDLE_DIR do
   sh "vim +PluginInstall +qall"
 end
 
+#########
 ## Bash
+################
 BASHRC_DIR = File.join(Dir.home, ".bashrc.d")
 directory BASHRC_DIR
 
@@ -46,35 +59,40 @@ desc 'Setup the bash environment'
 task :bash => [BASHRC_DIR, BASHCOMPLET_DIR] do
   safe_symlink! '.bashrc'
 
-  require 'open-uri'
-  open File.join(BASHRC_DIR, 'powerline-shell.bash'), 'wb' do |file|
-    open 'https://raw.githubusercontent.com/bcmarinacci/powerline-shell/master/powerline-shell.bash' do |uri|
-      file.write uri.read
-    end
-  end
+  download_files(
+    'https://raw.githubusercontent.com/bcmarinacci/powerline-shell/master/powerline-shell.bash',
+    File.join(BASHRC_DIR, 'powerline-shell.bash')
+  )
+  download_files(
+    'https://raw.githubusercontent.com/cykerway/complete-alias/master/bash_completion.sh',
+    File.join(BASHCOMPLET_DIR, 'bash_completion.sh')
+  )
 end
 
+#########
 ## Git
+################
 desc 'Setup the Git environment'
 task :git => BASHCOMPLET_DIR do
   safe_symlink! '.gitconfig'
 
-  hub_autocomplete_url = 'https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh'
-  require 'open-uri'
-  open File.join(BASHCOMPLET_DIR, File.basename(hub_autocomplete_url)), 'wb' do |file|
-    open hub_autocomplete_url do |uri|
-      file.write uri.read
-    end
-  end
+  download_files(
+    'https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh',
+    File.join(BASHCOMPLET_DIR, 'hub.bash_completion.sh')
+  )
 end
 
-# Tmux
+#########
+## Tmux
+################
 desc 'Setup the tmux environment'
 task :tmux do
   safe_symlink! '.tmux.conf'
 end
 
-# IRB
+#########
+## IRB
+################
 desc 'Setup the irb environment'
 task :irb do
   safe_symlink! '.irbrc'
