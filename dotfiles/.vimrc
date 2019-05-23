@@ -108,6 +108,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
