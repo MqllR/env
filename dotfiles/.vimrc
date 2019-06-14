@@ -18,12 +18,15 @@ set nowritebackup
 
 " Hidden char
 set list
-set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+set listchars=eol:⏎,trail:␠,nbsp:⎵
 
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+" Global
+let b:comment_leader = '#'
 
 " Python
 au BufNewFile,BufRead *.py set textwidth=79
@@ -57,7 +60,6 @@ au         BufNewFile *.js set fileformat=unix
 au BufRead,BufNewFile *.js let b:comment_leader = '//'
 
 " Go
-au BufRead,BufNewFile *.go set autoindent
 au         BufNewFile *.go set fileformat=unix
 au BufRead,BufNewFile *.go let b:comment_leader = '//'
 
@@ -93,9 +95,10 @@ endf
 noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
 noremap cn :cn<CR>
 noremap cp :cp<CR>
+noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+noremap <F5>p :call Header()<CR>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
-nmap <F5>p :call Header()<CR>
 
 """ Vundle plugin manager
 set nocompatible              " be iMproved, required
