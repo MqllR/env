@@ -11,6 +11,9 @@ export EDITOR=$(which vim)
 # User specific aliases and functions
 PS1="\$(cmd_return=\$?; if [[ \$cmd_return == 0 ]]; then echo \"\[\033[01;37m\]\$cmd_return\"; else echo \"\[\033[01;31m\]\$cmd_return\"; fi) \[\033[01;32m\]\u\[\033[01;37m\]@\[\033[01;34m\]\h\[\033[01;35m\] \w \[\033[00m\]\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+## Use Vi binding
+set -o vi
+
 ## Functions
 ##########
 
@@ -104,7 +107,10 @@ alias openpr="hub pull-request --browse"
 alias k='kubectl'
 alias kg='kubectl get'
 alias kgyml='kubectl get -oyaml'
-alias kgrun='kubectl get --field-selector=status.phase=Running'
+alias kgl='kubectl get -l'
+alias kgpol='kubectl get po -l'
+alias kgporun='kubectl get po --field-selector=status.phase=Running'
+alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
 alias ka='kubectl apply'
 alias krm='kubectl delete'
 alias kd='kubectl describe'
@@ -114,7 +120,10 @@ alias kl='kubectl logs'
 complete -F _complete_alias k
 complete -F _complete_alias kg
 complete -F _complete_alias kgyml
-complete -F _complete_alias kgrun
+complete -F _complete_alias kgl
+complete -F _complete_alias kgpol
+complete -F _complete_alias kgporun
+complete -F _complete_alias kge
 complete -F _complete_alias ka
 complete -F _complete_alias krm
 complete -F _complete_alias kd
