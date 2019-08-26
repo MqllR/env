@@ -5,7 +5,7 @@ set belloff=all
 set number
 set scrolloff=3
 
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=LightGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight BadWhitespace ctermbg=red guibg=red
 
 match BadWhitespace /^\t\+/
@@ -24,6 +24,10 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set splitbelow
+
+" Terminal
+" Available in 8.1 au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
 
 " Global
 let b:comment_leader = '#'
@@ -62,6 +66,11 @@ au BufRead,BufNewFile *.js let b:comment_leader = '//'
 " Go
 au         BufNewFile *.go set fileformat=unix
 au BufRead,BufNewFile *.go let b:comment_leader = '//'
+
+" C-w
+nnoremap <C-z> <C-w>
+tnoremap <C-z> <C-w>
+nmap <C-z><C-z> <C-z><C-w>
 
 " Comment
 noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
@@ -112,6 +121,11 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
 Plugin 'fatih/vim-go'
+" Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on

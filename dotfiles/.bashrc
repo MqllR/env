@@ -101,10 +101,14 @@ alias openpr="hub pull-request --browse"
 alias k='kubectl'
 alias kg='kubectl get'
 alias kgyml='kubectl get -oyaml'
+alias kgwide='kubectl get -owide'
 alias kgl='kubectl get -l'
 alias kgpol='kubectl get po -l'
 alias kgporun='kubectl get po --field-selector=status.phase=Running'
+alias kgpofail='kubectl get po --field-selector=status.phase=Failed'
 alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
+alias kgewarn='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type=Warning'
+alias kgenotnorm='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type!=Normal'
 alias ka='kubectl apply'
 alias krm='kubectl delete'
 alias kd='kubectl describe'
@@ -114,10 +118,14 @@ alias kl='kubectl logs'
 complete -F _complete_alias k
 complete -F _complete_alias kg
 complete -F _complete_alias kgyml
+complete -F _complete_alias kgwide
 complete -F _complete_alias kgl
 complete -F _complete_alias kgpol
 complete -F _complete_alias kgporun
+complete -F _complete_alias kgpofail
 complete -F _complete_alias kge
+complete -F _complete_alias kgewarn
+complete -F _complete_alias kgenotnorm
 complete -F _complete_alias ka
 complete -F _complete_alias krm
 complete -F _complete_alias kd
