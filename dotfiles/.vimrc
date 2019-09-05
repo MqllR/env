@@ -122,6 +122,8 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'https://github.com/tpope/vim-rhubarb.git'
 Plugin 'fatih/vim-go'
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
