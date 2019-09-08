@@ -27,7 +27,10 @@ set expandtab
 set splitbelow
 
 " Terminal
-" Available in 8.1 au TerminalOpen * if &buftype == 'terminal' | setlocal bufhidden=hide | endif
+" Available in 8.1
+if v:version > 800
+  au TerminalOpen * if &buftype == 'terminal' | setlocal nolist nonu | endif
+endif
 
 " Global
 let b:comment_leader = '#'
