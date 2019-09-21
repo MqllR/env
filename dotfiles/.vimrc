@@ -68,7 +68,7 @@ au BufRead,BufNewFile *.js let b:comment_leader = '//'
 
 " Go
 au         BufNewFile *.go set fileformat=unix
-au BufRead,BufNewFile *.go set listchars=tab:▸\ ,eol:⏎
+au BufRead,BufNewFile *.go set listchars=tab:.\ ,eol:⏎
 au BufRead,BufNewFile *.go set softtabstop=0 noexpandtab
 au BufRead,BufNewFile *.go let b:comment_leader = '//'
 
