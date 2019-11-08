@@ -129,6 +129,8 @@ Plugin 'https://github.com/tpope/vim-fugitive.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'https://github.com/tpope/vim-rhubarb.git'
 Plugin 'fatih/vim-go'
+Plugin 'hashivim/vim-terraform'
+
 " Snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -139,6 +141,7 @@ call vundle#end()
 filetype plugin indent on
 
 """ Plugin config
-set laststatus=2
 let g:airline_theme='solarized'
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 map <C-o> :NERDTreeToggle<CR>
