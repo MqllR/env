@@ -118,7 +118,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
@@ -136,15 +137,5 @@ filetype plugin indent on
 
 """ Plugin config
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'PaperColor_light',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
+let g:airline_theme='solarized'
 map <C-o> :NERDTreeToggle<CR>
