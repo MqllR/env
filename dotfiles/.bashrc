@@ -100,11 +100,11 @@ alias openpr="hub pull-request --browse"
 # Kubernetes
 # kshell <label> [<command>]
 kshell() {
-  pod=$(kubectl get pod -l $1 --template "{{ with index .items ${POD_INDEX:-0} }}{{ .metadata.name }}{{ end }}")
+  pod=$(kubectl get pod -l $1 --field-selector=status.phase=Running --template "{{ with index .items ${POD_INDEX:-0} }}{{ .metadata.name }}{{ end }}")
+  cmd=bash
   if [ ! -z $2 ] ; then
     cmd=$2
   fi
-  echo POD: $pod
   kubectl exec -it $pod -- $cmd
 }
 
