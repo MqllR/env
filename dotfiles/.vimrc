@@ -72,6 +72,11 @@ au BufRead,BufNewFile *.go set listchars=tab:.\ ,eol:⏎
 au BufRead,BufNewFile *.go set softtabstop=0 noexpandtab
 au BufRead,BufNewFile *.go let b:comment_leader = '//'
 
+" Makefile
+au         BufNewFile Makefile set fileformat=unix
+au BufRead,BufNewFile Makefile set listchars=tab:.\ ,eol:⏎
+au BufRead,BufNewFile Makefile set softtabstop=0 noexpandtab
+
 " C-w
 nnoremap <C-z> <C-w>
 tnoremap <C-z> <C-w>
