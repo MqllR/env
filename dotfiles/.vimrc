@@ -109,7 +109,7 @@ endf
 noremap , :w<CR>:echo "Saved " strftime("%c") "!" <CR>
 noremap cn :cn<CR>
 noremap cp :cp<CR>
-noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+noremap <F4> :execute "Clap grep ++query=<cword>" <CR>
 noremap <F5>p :call Header()<CR>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
@@ -123,11 +123,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'liuchengxu/vim-clap'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'https://github.com/tpope/vim-rhubarb.git'
+
+" Coding
 Plugin 'fatih/vim-go'
 Plugin 'hashivim/vim-terraform'
 
