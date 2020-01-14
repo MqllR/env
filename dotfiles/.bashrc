@@ -98,10 +98,14 @@ complete -F _complete_alias ggrep
 alias openpr="hub pull-request --browse"
 
 # Kubernetes
-# kshell <label> [<command>]
+get_pods_name() {
+  kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}'
+}
+
+# kshell regex [command]
 kshell() {
-  pod=$(kubectl get pod -l $1 --field-selector=status.phase=Running --template "{{ with index .items ${POD_INDEX:-0} }}{{ .metadata.name }}{{ end }}")
-  cmd=bash
+  pod=$(get_pods_name | grep -E $1 | head -1)
+  cmd=sh
   if [ ! -z $2 ] ; then
     cmd=$2
   fi
