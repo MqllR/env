@@ -119,6 +119,10 @@ noremap <F5>p :call Header()<CR>
 nmap oo o<Esc>k
 nmap OO O<Esc>j
 
+noremap Cf :Clap files<CR>
+noremap Cg :Clap grep<CR>
+noremap Cb :Clap buffers<CR>
+
 """ Vundle plugin manager
 set nocompatible              " be iMproved, required
 filetype off                  " required
