@@ -114,11 +114,12 @@ kshell() {
 
 alias k='kubectl'
 alias kg='kubectl get'
+alias kpods='kubectl get pods --field-selector=status.phase=Running | grep -E '
 alias kgyml='kubectl get -oyaml'
 alias kgwide='kubectl get -owide'
-alias kgl='kubectl get -l'
 alias kgpol='kubectl get po -l'
 alias kgporun='kubectl get po --field-selector=status.phase=Running'
+alias kgponotrun='kubectl get po --field-selector=status.phase!=Running'
 alias kgpofail='kubectl get po --field-selector=status.phase=Failed'
 alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
 alias kgewarn='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type=Warning'
