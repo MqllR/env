@@ -21,30 +21,7 @@ def download_files(url, path)
   end
 end
 
-task :default => [:vim, :bash, :tmux, :irb]
-
-#########
-## Vim
-################
-VUNDLE_DIR = File.join(Dir.home, '.vim/bundle/Vundle.vim/')
-directory VUNDLE_DIR
-
-desc 'Setup the vim environment'
-task :vim => VUNDLE_DIR do
-  safe_symlink! '.vimrc'
-
-  # Install Vundle
-  begin
-    require 'git'
-    g = Git.open(VUNDLE_DIR)
-    g.pull
-  rescue ArgumentError
-    Git.clone('https://github.com/VundleVim/Vundle.vim.git', VUNDLE_DIR)
-  end
-
-  # Install plugins
-  sh "vim +PluginInstall +qall"
-end
+task :default => [:bash, :tmux, :irb]
 
 #########
 ## Bash
