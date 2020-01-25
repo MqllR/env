@@ -112,6 +112,12 @@ kshell() {
   kubectl exec -it $pod -- $cmd
 }
 
+# klogs regex
+klogs() {
+  pod=$(get_pods_name | grep -E $1 | head -1)
+  kubectl logs -f $pod
+}
+
 alias k='kubectl'
 alias kg='kubectl get'
 alias kpods='kubectl get pods --field-selector=status.phase=Running | grep -E '
