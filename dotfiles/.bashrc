@@ -61,39 +61,6 @@ alias tmc="tmux new-session -s mql"
 alias tma="tmux attach -t mql"
 alias tmk="tmux kill-session -t mql"
 
-# Git
-alias g="git"
-alias ga="git add"
-alias gr="git rm"
-alias gre="git reset"
-alias gs="git status"
-alias gsh="git show"
-alias gc="git commit -m"
-alias gco="git checkout"
-alias gd='git diff'
-alias gl='git log'
-alias gf='git fetch'
-alias gb='git branch'
-alias gps="git push"
-alias gpu="git pull"
-alias ggrep="git grep"
-
-complete -F _complete_alias g
-complete -F _complete_alias ga
-complete -F _complete_alias gr
-complete -F _complete_alias gre
-complete -F _complete_alias gs
-complete -F _complete_alias gsh
-complete -F _complete_alias gc
-complete -F _complete_alias gco
-complete -F _complete_alias gd
-complete -F _complete_alias gl
-complete -F _complete_alias gf
-complete -F _complete_alias gb
-complete -F _complete_alias gps
-complete -F _complete_alias gpu
-complete -F _complete_alias ggrep
-
 # Hub
 alias openpr="hub pull-request --browse"
 
