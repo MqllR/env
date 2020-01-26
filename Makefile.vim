@@ -10,12 +10,12 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: vim-install
 vim-install: vim-uninstall vimrc
-	cd /tmp/vim-${VIMVERSION}; ./configure; make install
+	cd /tmp/vim-${VIMVERSION}; ./configure; sudo make install
 	$(MAKE) -f Makefile.vim vundle-install
 
 .PHONY: vim-uninstall
 vim-uninstall: vim-download
-	cd /tmp/vim-${VIMVERSION} ; make uninstall
+	cd /tmp/vim-${VIMVERSION} ; sudo make uninstall
 
 .PHONY: vim-download
 vim-download:

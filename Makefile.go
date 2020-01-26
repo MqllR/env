@@ -7,9 +7,9 @@ GOURL=https://dl.google.com/go/${GOARCHIVE}
 .PHONY: go-install
 go-install: go-clean
 	curl -O ${GOURL}
-	tar -C /usr/local -xzf ${GOARCHIVE}
+	sudo tar -C /usr/local -xzf ${GOARCHIVE}
 	rm -f ${GOARCHIVE}
 
 .PHONY: go-clean
 go-clean:
-	rm -rf /usr/local/go
+	sudo rm -rf /usr/local/go
