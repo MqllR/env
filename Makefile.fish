@@ -9,11 +9,15 @@ fisher-install: fish-install
 
 # https://github.com/oh-my-fish/oh-my-fish/
 .PHONY: omf-install
-omf-install:
+omf-install: fish-install
 	curl -L https://get.oh-my.fish | fish
 
 .PHONY: fish-install
 fish-install:
 	sudo apt-get install fish
-	rm -f ${HOME}/.config/fish/functions/git.fish
-	ln -s ${ROOT_DIR}/fish/functions/git.fish ${HOME}/.config/fish/functions/git.fish
+	mkdir -p ${HOME}/.config/fish/functions
+	mkdir -p ${HOME}/.config/fish/conf.d
+	rm -f ${HOME}/.config/fish/functions/mql-git.fish
+	rm -f ${HOME}/.config/fish/conf.d/mql.fish
+	ln -s ${ROOT_DIR}/fish/conf.d/mql.fish ${HOME}/.config/fish/conf.d/mql.fish
+	ln -s ${ROOT_DIR}/fish/functions/mql-git.fish ${HOME}/.config/fish/functions/mql-git.fish
