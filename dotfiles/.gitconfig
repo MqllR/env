@@ -3,16 +3,11 @@
 [merge]
   tool = vimdiff
 [alias]
-  a = add
-  b = branch
+  br = branch
   c = commit -m
   d = diff
-  l = log
-  pu = pull
-  ps = push
-  r = rm
-  s = status
   sh = show
+  st = status
   co = checkout
   undo = reset --soft HEAD^
   oneline = log --pretty=oneline --abbrev-commit --graph --decorate
