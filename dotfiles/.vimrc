@@ -142,6 +142,7 @@ Plugin 'https://github.com/tpope/vim-rhubarb.git'
 
 " Coding
 Plugin 'fatih/vim-go'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'hashivim/vim-terraform'
 
 " Snippets
