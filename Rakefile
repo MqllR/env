@@ -45,32 +45,3 @@ task :bash => [BASHRC_DIR, BASHCOMPLET_DIR] do
     File.join(BASHCOMPLET_DIR, 'bash_completion.sh')
   )
 end
-
-#########
-## Git
-################
-desc 'Setup the Git environment'
-task :git => BASHCOMPLET_DIR do
-  safe_symlink! '.gitconfig'
-
-  download_files(
-    'https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh',
-    File.join(BASHCOMPLET_DIR, 'hub.bash_completion.sh')
-  )
-end
-
-#########
-## Tmux
-################
-desc 'Setup the tmux environment'
-task :tmux do
-  safe_symlink! '.tmux.conf'
-end
-
-#########
-## IRB
-################
-desc 'Setup the irb environment'
-task :irb do
-  safe_symlink! '.irbrc'
-end

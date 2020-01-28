@@ -1,0 +1,23 @@
+# vim:filetype=make
+
+HUBVERSION=2.14.1
+HUBARCHIVE=hub-linux-amd64-${HUBVERSION}
+HUBURL=https://github.com/github/hub/releases/download/v${HUBVERSION}/${HUBARCHIVE}.tgz
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+.PHONY: git-install
+git-install: gitconfig
+	sudo apt-get install git
+
+.PHONY: hub-install
+hub-install:
+	curl -LO ${HUBURL}
+	tar xzf ${HUBARCHIVE}.tgz
+	sudo ./${HUBARCHIVE}/install
+	rm -rf ${HUBARCHIVE}*
+
+.PHONY: gitconfig
+gitconfig:
+	rm -f ${HOME}/.gitconfig
+	ln -s ${ROOT_DIR}/dotfiles/.gitconfig ${HOME}/.gitconfig
