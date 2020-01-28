@@ -6,7 +6,7 @@ KUBECTLURL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTLVE
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: kubectl-install
-kubectl-install: kubectl-install kubectl-autocomplete fishaliases
+kubectl-install: kubectl-install kubectl-autocomplete fish
 	sudo rm -f /usr/local/bin/kubectl
 	sudo curl -L ${KUBECTLURL} -o /usr/local/bin/kubectl
 	sudo chmod +x /usr/local/bin/kubectl
@@ -15,7 +15,7 @@ kubectl-install: kubectl-install kubectl-autocomplete fishaliases
 kubectl-autocomplete:
 	fish -c 'fisher add evanlucas/fish-kubectl-completions'
 
-.PHONY: fishaliases
-fishaliases:
+.PHONY: fish
+fish:
 	rm -f ${HOME}/.config/fish/functions/mql-k8s.fish
 	ln -s ${ROOT_DIR}/fish/functions/mql-k8s.fish ${HOME}/.config/fish/functions/mql-k8s.fish
