@@ -7,7 +7,7 @@ HUBURL=https://github.com/github/hub/releases/download/v${HUBVERSION}/${HUBARCHI
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: git-install
-git-install: gitconfig
+git-install: gitconfig fishaliases
 	sudo apt-get install git
 
 .PHONY: hub-install
@@ -21,3 +21,8 @@ hub-install:
 gitconfig:
 	rm -f ${HOME}/.gitconfig
 	ln -s ${ROOT_DIR}/dotfiles/.gitconfig ${HOME}/.gitconfig
+
+.PHONY: fishaliases
+fishaliases:
+	rm -f ${HOME}/.config/fish/functions/mql-git.fish
+	ln -s ${ROOT_DIR}/fish/functions/mql-git.fish ${HOME}/.config/fish/functions/mql-git.fish
