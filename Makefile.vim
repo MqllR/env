@@ -32,7 +32,7 @@ vimrc:
 .PHONY: vundle-install
 vundle-install: vimrc
 ifeq (,$(wildcard ${HOME}/.vim/bundle/Vundle.vim))
-	mkdir ${HOME}/.vim/bundle/Vundle.vim
+	mkdir -p ${HOME}/.vim/bundle/Vundle.vim
 	git clone ${VUNDLEREPO} ${HOME}/.vim/bundle/Vundle.vim
 endif
 	vim +PluginInstall +qall
