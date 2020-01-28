@@ -21,14 +21,6 @@ docktag() {
     curl -s "https://registry.hub.docker.com/v2/repositories/$1/tags/" | jq '.results[].name'
 }
 
-git() {
-  umask 0022; command git "$@"
-}
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 ## Load additional scripts
 ############
 if [ -d ${HOME}/.bash_completion.d ]; then
