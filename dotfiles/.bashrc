@@ -70,13 +70,13 @@ complete -F _complete_alias g
 alias openpr="hub pull-request --browse"
 
 # Kubernetes
-get_pods_name() {
+get_running_pods_name() {
   kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}'
 }
 
 # kshell regex [command]
 kshell() {
-  pod=$(get_pods_name | grep -E $1 | head -1)
+  pod=$(get_running_pods_name | grep -E $1 | head -1)
   cmd=sh
   if [ ! -z $2 ] ; then
     cmd=$2
@@ -86,13 +86,21 @@ kshell() {
 
 # klogs regex
 klogs() {
-  pod=$(get_pods_name | grep -E $1 | head -1)
+  pod=$(get_running_pods_name | grep -E $1 | head -1)
   kubectl logs -f $pod
+}
+
+# kpods [regex]
+kpods() {
+  if [ $# -gt 0 ]; then
+    kubectl get pods | grep -E $1
+  else
+    kubectl get pods
+  fi
 }
 
 alias k='kubectl'
 alias kg='kubectl get'
-alias kpods='kubectl get pods --field-selector=status.phase=Running | grep -E '
 alias kgyml='kubectl get -oyaml'
 alias kgwide='kubectl get -owide'
 alias kgpol='kubectl get po -l'
