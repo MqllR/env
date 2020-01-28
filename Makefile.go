@@ -4,6 +4,8 @@ GOVERSION=1.13.7
 GOARCHIVE=go${GOVERSION}.linux-amd64.tar.gz
 GOURL=https://dl.google.com/go/${GOARCHIVE}
 
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 .PHONY: go-install
 go-install: go-clean fish
 	curl -O ${GOURL}
