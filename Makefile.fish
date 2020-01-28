@@ -2,6 +2,14 @@
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
+.PHONY: fish-install
+fish-install:
+	sudo apt-get install fish
+	mkdir -p ${HOME}/.config/fish/functions
+	mkdir -p ${HOME}/.config/fish/conf.d
+	rm -f ${HOME}/.config/fish/conf.d/mql.fish
+	ln -s ${ROOT_DIR}/fish/conf.d/mql.fish ${HOME}/.config/fish/conf.d/mql.fish
+
 # https://github.com/jorgebucaran/fisher
 .PHONY: fisher-install
 fisher-install: fish-install
@@ -11,11 +19,3 @@ fisher-install: fish-install
 .PHONY: omf-install
 omf-install: fish-install
 	curl -L https://get.oh-my.fish | fish
-
-.PHONY: fish-install
-fish-install:
-	sudo apt-get install fish
-	mkdir -p ${HOME}/.config/fish/functions
-	mkdir -p ${HOME}/.config/fish/conf.d
-	rm -f ${HOME}/.config/fish/conf.d/mql.fish
-	ln -s ${ROOT_DIR}/fish/conf.d/mql.fish ${HOME}/.config/fish/conf.d/mql.fish

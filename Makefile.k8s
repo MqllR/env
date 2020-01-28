@@ -1,0 +1,21 @@
+# vim:filetype=make
+
+KUBECTLVERSION=v1.16.6
+KUBECTLURL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTLVERSION}/bin/linux/amd64/kubectl
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+.PHONY: kubectl-install
+kubectl-install: kubectl-install kubectl-autocomplete fishaliases
+	sudo rm -f /usr/local/bin/kubectl
+	sudo curl -L ${KUBECTLURL} -o /usr/local/bin/kubectl
+	sudo chmod +x /usr/local/bin/kubectl
+
+.PHONY: kubectl-autocomplete
+kubectl-autocomplete:
+	fish -c 'fisher add evanlucas/fish-kubectl-completions'
+
+.PHONY: fishaliases
+fishaliases:
+	rm -f ${HOME}/.config/fish/functions/mql-k8s.fish
+	ln -s ${ROOT_DIR}/fish/functions/mql-k8s.fish ${HOME}/.config/fish/functions/mql-k8s.fish
