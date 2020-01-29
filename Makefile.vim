@@ -8,8 +8,8 @@ VUNDLEREPO=https://github.com/VundleVim/Vundle.vim.git
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: vim-install
-vim-install: vim-uninstall vimrc
+.PHONY: install
+install: vim-uninstall vimrc
 	cd /tmp/vim-${VIMVERSION}; ./configure; sudo make install
 	$(MAKE) -f Makefile.vim vundle-install
 

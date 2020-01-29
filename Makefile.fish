@@ -2,8 +2,8 @@
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: fish-install
-fish-install:
+.PHONY: install
+install:
 	sudo apt-get install fish
 	mkdir -p ${HOME}/.config/fish/functions
 	mkdir -p ${HOME}/.config/fish/conf.d

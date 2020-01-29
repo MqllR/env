@@ -6,8 +6,8 @@ GOURL=https://dl.google.com/go/${GOARCHIVE}
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: go-install
-go-install: go-clean fish
+.PHONY: install
+install: go-clean
 	curl -O ${GOURL}
 	sudo tar -C /usr/local -xzf ${GOARCHIVE}
 	rm -f ${GOARCHIVE}
