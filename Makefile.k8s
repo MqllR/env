@@ -16,3 +16,9 @@ fish:
 	rm -f ${HOME}/.config/fish/functions/mql-k8s.fish
 	ln -s ${ROOT_DIR}/fish/functions/mql-k8s.fish ${HOME}/.config/fish/functions/mql-k8s.fish
 	fish -c 'fisher add evanlucas/fish-kubectl-completions'
+
+.PHONY: bash
+bash:
+	rm -f ${HOME}/.bashrc.d/mql-k8s.sh
+	ln -s ${ROOT_DIR}/bashrc/mql-k8s.sh ${HOME}/.bashrc.d/mql-k8s.sh
+	kubectl completion bash > ${HOME}/.bash_completion.d/kubectl

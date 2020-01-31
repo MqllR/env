@@ -20,3 +20,8 @@ go-clean:
 fish:
 	rm -f ${HOME}/.config/fish/functions/mql-go.fish
 	ln -s ${ROOT_DIR}/fish/functions/mql-go.fish ${HOME}/.config/fish/functions/mql-go.fish
+
+.PHONY: bash
+bash:
+	rm -f ${HOME}/.bashrc.d/mql-go.sh
+	ln -s ${ROOT_DIR}/bashrc/mql-go.sh ${HOME}/.bashrc.d/mql-go.sh

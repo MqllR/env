@@ -26,3 +26,8 @@ gitconfig:
 fish:
 	rm -f ${HOME}/.config/fish/functions/mql-git.fish
 	ln -s ${ROOT_DIR}/fish/functions/mql-git.fish ${HOME}/.config/fish/functions/mql-git.fish
+
+.PHONY: bash
+bash:
+	rm -f ${HOME}/.bashrc.d/mql-git.sh
+	ln -s ${ROOT_DIR}/bashrc/mql-git.sh ${HOME}/.bashrc.d/mql-git.sh
