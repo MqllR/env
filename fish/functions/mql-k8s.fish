@@ -1,6 +1,5 @@
 function k --wraps=kubectl ; kubectl $argv ; end
 
-alias kg='kubectl get'
 alias kgyml='kubectl get -oyaml'
 alias kgwide='kubectl get -owide'
 alias kgpol='kubectl get po -l'
@@ -10,11 +9,7 @@ alias kgpofail='kubectl get po --field-selector=status.phase=Failed'
 alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
 alias kgewarn='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type=Warning'
 alias kgenotnorm='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type!=Normal'
-alias ka='kubectl apply'
-alias krm='kubectl delete'
-alias kd='kubectl describe'
 alias ke='kubectl exec -it'
-alias kl='kubectl logs'
 
 function get_running_pods_name
   kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}'
