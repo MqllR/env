@@ -1,20 +1,21 @@
-## Powerline line setup
+# Env
 
-```
-curl https://raw.githubusercontent.com/bcmarinacci/powerline-shell/master/powerline-shell.bash > ~/.bashrc.d/powerline-shell.bash
-```
+Install and setup tools with Makefiles.
 
-## Vim install
-#### Install
+##### OS Supported
 
-Get Vundle:
+Debian like with apt
 
-```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
+### Git
 
-Install plugins:
+### Tmux
 
-```
-vim +PluginInstall +qall
-```
+### Vim
+
+### Go
+
+### Kubectl
+
+### Bash
+
+### Fish
