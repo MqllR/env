@@ -12,10 +12,11 @@ install:
 
 # https://github.com/jorgebucaran/fisher
 .PHONY: fisher-install
-fisher-install: fish-install
+fisher-install:
 	curl https://git.io/fisher --create-dirs -sLo ${HOME}/.config/fish/functions/fisher.fish
 
 # https://github.com/oh-my-fish/oh-my-fish/
 .PHONY: omf-install
-omf-install: fish-install
+omf-install:
 	curl -L https://get.oh-my.fish | fish
+	fish -c 'omf install fish_logo'
