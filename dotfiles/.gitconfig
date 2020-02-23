@@ -12,3 +12,5 @@
   undo = reset --soft HEAD^
   oneline = log --pretty=oneline --abbrev-commit --graph --decorate
   amend = commit --amend
+[credential]
+	helper = cache
