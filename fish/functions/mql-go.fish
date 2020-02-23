@@ -1,7 +1,7 @@
-if not contains /usr/local/go/bin $PATH
-  set PATH $PATH /usr/local/go/bin
-end
+set -gx GOROOT $HOME/go
 
-if not contains $HOME/go/bin $PATH
-  set PATH $PATH $HOME/go/bin
+for path in /usr/local/go/bin $GOROOT/bin
+  if not contains path $PATH
+    set PATH $PATH $path
+  end
 end
