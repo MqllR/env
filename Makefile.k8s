@@ -6,7 +6,7 @@ KUBECTLURL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTLVE
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: install
-install: kubectl-autocomplete
+install:
 	sudo rm -f /usr/local/bin/kubectl
 	sudo curl -L ${KUBECTLURL} -o /usr/local/bin/kubectl
 	sudo chmod +x /usr/local/bin/kubectl

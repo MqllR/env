@@ -2,10 +2,6 @@
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: install
-install: tmuxconf
-	sudo apt-get install tmux
-
 .PHONY: tmuxconf
 tmuxconf:
 	rm -f ${HOME}/.tmux.conf

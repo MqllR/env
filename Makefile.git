@@ -6,10 +6,6 @@ HUBURL=https://github.com/github/hub/releases/download/v${HUBVERSION}/${HUBARCHI
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: install
-install: hub-install gitconfig
-	sudo apt-get install git
-
 .PHONY: hub-install
 hub-install:
 	curl -LO ${HUBURL}

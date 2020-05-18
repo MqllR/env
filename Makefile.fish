@@ -2,9 +2,8 @@
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: install
-install:
-	sudo apt-get install fish
+.PHONY: config
+config:
 	mkdir -p ${HOME}/.config/fish/functions
 	mkdir -p ${HOME}/.config/fish/conf.d
 	rm -f ${HOME}/.config/fish/conf.d/mql.fish
@@ -20,4 +19,3 @@ fisher-install:
 omf-install:
 	curl -L https://get.oh-my.fish | fish
 	fish -c 'omf install bobthefish'
-	fish -c 'omf install nvm'
