@@ -178,6 +178,11 @@ let g:go_highlight_operators = 1
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 
+""" Snippets
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
+imap <C-S> <Plug>snipMateShow
+
 """""""""""""""""
 """""""" Coc.nvim
 " Use tab for trigger completion with characters ahead and navigate.
