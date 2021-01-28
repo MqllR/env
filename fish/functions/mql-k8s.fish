@@ -10,6 +10,8 @@ alias kge='kubectl get events --sort-by=.metadata.creationTimestamp'
 alias kgewarn='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type=Warning'
 alias kgenotnorm='kubectl get events --sort-by=.metadata.creationTimestamp --field-selector type!=Normal'
 alias ke='kubectl exec -it'
+alias kg='kubectl get'
+alias kd='kubectl describe'
 
 function get_running_pods_name
   kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}'
