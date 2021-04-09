@@ -14,3 +14,6 @@
   amend = commit --amend
 [credential]
 	helper = cache
+[user]
+	email = mael@mqli.fr
+	name = Mael Regnery

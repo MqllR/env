@@ -15,7 +15,7 @@ install:
 fish:
 	rm -f ${HOME}/.config/fish/functions/mql-k8s.fish
 	ln -s ${ROOT_DIR}/fish/functions/mql-k8s.fish ${HOME}/.config/fish/functions/mql-k8s.fish
-	fish -c 'fisher add evanlucas/fish-kubectl-completions'
+	fish -c 'fisher install evanlucas/fish-kubectl-completions'
 
 .PHONY: bash
 bash:

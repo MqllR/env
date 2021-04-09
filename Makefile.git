@@ -6,13 +6,6 @@ HUBURL=https://github.com/github/hub/releases/download/v${HUBVERSION}/${HUBARCHI
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: hub-install
-hub-install:
-	curl -LO ${HUBURL}
-	tar xzf ${HUBARCHIVE}.tgz
-	sudo ./${HUBARCHIVE}/install
-	rm -rf ${HUBARCHIVE}*
-
 .PHONY: gitconfig
 gitconfig:
 	rm -f ${HOME}/.gitconfig
