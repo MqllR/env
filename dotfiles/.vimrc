@@ -183,6 +183,8 @@ imap <C-J> <Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 imap <C-S> <Plug>snipMateShow
 
+let g:snipMate = { 'snippet_version' : 1 }
+
 """""""""""""""""
 """""""" Coc.nvim
 " Use tab for trigger completion with characters ahead and navigate.
