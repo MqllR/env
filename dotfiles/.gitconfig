@@ -17,3 +17,5 @@
 [user]
 	email = mael@mqli.fr
 	name = Mael Regnery
+[commit]
+	gpgsign = true
