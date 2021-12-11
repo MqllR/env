@@ -19,6 +19,6 @@ endif
 
 .PHONY: coc-install
 coc-install: vimrc vundle-install
-	vim -c ":CocInstall coc-json coc-tsserver"
+	vim -c ":CocInstall coc-json coc-yaml coc-tsserver coc-eslint coc-prettier coc-solargraph"
 	rm -f ${HOME}/.vim/coc-settings.json
 	ln -s ${ROOT_DIR}/dotfiles/coc-settings.json ${HOME}/.vim/coc-settings.json
