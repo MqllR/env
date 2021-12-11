@@ -48,7 +48,6 @@ au BufRead,BufNewFile *.py let b:first_line = '# -*- encoding: utf-8 -*-'
 au BufNewFile,BufRead *.rb,*.rake,Rakefile set textwidth=79
 au BufNewFile,BufRead *.rb,*.rake,Rakefile set autoindent
 au            BufRead *.rb,*.rake,Rakefile set fileformat=unix
-au BufRead,BufNewFile *.rb,*.rake,Rakefile let b:comment_leader = '#'
 au BufRead,BufNewFile *.rb,*.rake,Rakefile let b:first_line= '# frozen_string_literal: true'
 
 " HTML
@@ -60,7 +59,6 @@ au BufRead,BufNewFile *.html let b:comment_leader = '<!--'
 " YAML
 au BufRead,BufNewFile *.yaml,*.yml,*.json set autoindent
 au         BufNewFile *.yaml,*.yml,*.json set fileformat=unix
-au BufRead,BufNewFile *.yaml,*.yml let b:comment_leader = '#'
 au BufRead,BufNewFile *.yaml,*.yml let b:first_line = '---'
 
 " JS
@@ -144,8 +142,8 @@ Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'https://github.com/tpope/vim-rhubarb.git'
 
 " Coding
+Plugin 'sheerun/vim-polyglot'
 Plugin 'fatih/vim-go'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'hashivim/vim-terraform'
 Plugin 'neoclide/coc.nvim'
 
