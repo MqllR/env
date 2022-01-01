@@ -17,6 +17,10 @@ function get_running_pods_name
   kubectl get pods --field-selector=status.phase=Running -o=jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}'
 end
 
+if not contains $HOME/.krew/bin/ $PATH
+  set PATH $PATH $HOME/.krew/bin/
+end
+
 ## kshell regex [command]
 function kshell
   set -l pod (get_running_pods_name | grep -E $argv[1] | head -1)

@@ -1,0 +1,11 @@
+.PHONY: default
+default:
+	sudo snap install \
+		brave
+
+.PHONY: messaging
+messaging:
+	sudo snap install --classic slack
+	sudo snap install \
+		zoom-client \
+		telegram-desktop

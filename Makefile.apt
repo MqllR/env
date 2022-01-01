@@ -1,0 +1,14 @@
+.PHONY: default
+default:
+	sudo apt update
+	sudo apt install -y \
+		ca-certificates \
+		cargo \
+		curl \
+		fish \
+		git \
+		gnupg \
+		lsb-release \
+		ripgrep \
+		tmux \
+		vim

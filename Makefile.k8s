@@ -1,15 +1,24 @@
 # vim:filetype=make
 
-KUBECTLVERSION=v1.16.6
-KUBECTLURL=https://storage.googleapis.com/kubernetes-release/release/${KUBECTLVERSION}/bin/linux/amd64/kubectl
-
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: install
-install:
-	sudo rm -f /usr/local/bin/kubectl
-	sudo curl -L ${KUBECTLURL} -o /usr/local/bin/kubectl
-	sudo chmod +x /usr/local/bin/kubectl
+.PHONY: install-kubectl
+install-kubectl:
+	$(eval LATEST=$(shell curl -L -s https://dl.k8s.io/release/stable.txt))
+	curl -vLO "https://dl.k8s.io/release/$(LATEST)/bin/linux/amd64/kubectl"
+	sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+.PHONY: install-krew
+install-krew:
+	curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew-linux_amd64.tar.gz"
+	tar xzf krew-linux_amd64.tar.gz
+	./krew-linux_amd64 install krew
+
+.PHONY: install-plugins
+install-plugins:
+	kubectl krew install node-shell
+	kubectl krew install ns
+	kubectl krew install neat
 
 .PHONY: fish
 fish:
