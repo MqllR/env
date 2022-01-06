@@ -23,6 +23,5 @@ omf-install:
 	curl -L "https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf" -o "${HOME}/.local/share/fonts/PowerlineSymbols.otf"
 	curl -L "https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf" -o "${HOME}/.config/fontconfig/conf.d/10-powerline-symbols.conf"
 	fc-cache -vf ${HOME}/.local/share/fonts/
-
 	curl -L "https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install" | fish
 	fish -c 'omf install bobthefish'

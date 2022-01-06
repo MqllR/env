@@ -6,6 +6,8 @@ GOURL=https://dl.google.com/go/${GOARCHIVE}
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
+all: install fish
+
 .PHONY: install
 install: go-clean
 	curl -O ${GOURL}

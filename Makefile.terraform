@@ -1,0 +1,15 @@
+# vim:filetype=make
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+all: install fish
+
+# https://github.com/warrensbox/terraform-switcher
+.PHONY: install
+install:
+	curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | sudo bash
+
+.PHONY: fish
+fish:
+	rm -f ${HOME}/.config/fish/functions/mql-terraform.fish
+	ln -s ${ROOT_DIR}/fish/functions/mql-terraform.fish ${HOME}/.config/fish/functions/mql-terraform.fish
