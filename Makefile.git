@@ -1,8 +1,8 @@
 # vim:filetype=make
 
-HUBVERSION=2.14.1
-HUBARCHIVE=hub-linux-amd64-${HUBVERSION}
-HUBURL=https://github.com/github/hub/releases/download/v${HUBVERSION}/${HUBARCHIVE}.tgz
+GHVERSION=2.4.0
+GHARCHIVE=gh_${GHVERSION}_linux_amd64
+GHURL=https://github.com/cli/cli/releases/download/v${GHVERSION}/${GHARCHIVE}.tar.gz
 
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
@@ -10,6 +10,14 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 gitconfig:
 	rm -f ${HOME}/.gitconfig
 	ln -s ${ROOT_DIR}/dotfiles/.gitconfig ${HOME}/.gitconfig
+
+.PHONY: install-gh
+install-gh:
+	curl -L -O ${GHURL}
+	mkdir -p gh_temp
+	tar xzf ${GHARCHIVE}.tar.gz -C gh_temp/
+	sudo install -o root -g root -m 0755 gh_temp/${GHARCHIVE}/bin/gh /usr/local/bin/gh
+	rm -rf ${GHARCHIVE}.tar.gz gh_temp/
 
 .PHONY: fish
 fish:
