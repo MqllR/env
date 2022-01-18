@@ -120,7 +120,7 @@ nmap oo o<Esc>k
 nmap OO O<Esc>j
 
 " Clap shortcut
-noremap Cf :Clap files<CR>
+noremap Cf :Clap files ++finder=rg --files --follow --hidden<CR>
 noremap CF :Clap filer<CR>
 noremap Cg :Clap grep<CR>
 noremap Cb :Clap buffers<CR>
@@ -164,6 +164,7 @@ nmap <silent> nt :NERDTreeToggle<CR>
 
 let g:clap_layout = { 'relative': 'editor' }
 let g:clap_theme = 'material_design_dark'
+let g:clap_provider_grep_opts = '--hidden -g "!.git/"'
 
 """ Go syntax highlighting
 let g:go_highlight_fields = 1
