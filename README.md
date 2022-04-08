@@ -4,8 +4,6 @@ Install and setup tools with Makefiles.
 
 ##### OS Supported
 
-Debian like with apt
-
 ### Git
 
 ### Tmux

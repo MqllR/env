@@ -62,9 +62,13 @@ au         BufNewFile *.yaml,*.yml,*.json set fileformat=unix
 au BufRead,BufNewFile *.yaml,*.yml let b:first_line = '---'
 
 " JS
-au BufRead,BufNewFile *.js set autoindent
-au         BufNewFile *.js set fileformat=unix
-au BufRead,BufNewFile *.js let b:comment_leader = '//'
+au BufRead,BufNewFile *.js,*.ts set autoindent
+au         BufNewFile *.js,*.ts set fileformat=unix
+au BufRead,BufNewFile *.js,*.ts let b:comment_leader = '//'
+
+" Terraform
+au         BufNewFile *.tf,*.tfvars set fileformat=unix
+au BufRead,BufNewFile *.tf,*.tfvars let b:comment_leader = '//'
 
 " Go
 au         BufNewFile *.go set fileformat=unix

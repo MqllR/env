@@ -1,6 +1,6 @@
 # vim:filetype=make
 
-GOVERSION=1.16.3
+GOVERSION=1.17.3
 GOARCHIVE=go${GOVERSION}.linux-amd64.tar.gz
 GOURL=https://dl.google.com/go/${GOARCHIVE}
 

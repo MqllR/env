@@ -1,6 +1,6 @@
 # vim:filetype=make
 
-GHVERSION=2.4.0
+GHVERSION=2.5.0
 GHARCHIVE=gh_${GHVERSION}_linux_amd64
 GHURL=https://github.com/cli/cli/releases/download/v${GHVERSION}/${GHARCHIVE}.tar.gz
 
