@@ -1,0 +1,8 @@
+# vim:filetype=make
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+.PHONY: alacrittyconf
+alacrittyconf:
+	rm -f ${HOME}/.alacritty.toml
+	ln -s ${ROOT_DIR}/dotfiles/.alacritty.toml ${HOME}/.alacritty.toml
