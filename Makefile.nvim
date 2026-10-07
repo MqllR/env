@@ -1,0 +1,8 @@
+# vim:filetype=make
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+.PHONY: fish
+fish:
+	rm -f ${HOME}/.config/fish/functions/mql-nvim.fish
+	ln -s ${ROOT_DIR}/fish/functions/mql-nvim.fish ${HOME}/.config/fish/functions/mql-nvim.fish

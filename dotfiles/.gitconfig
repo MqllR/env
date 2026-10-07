@@ -6,6 +6,8 @@
   br = branch
   c = commit -m
   d = diff
+  p = pull
+  ps = push
   sh = show
   st = status
   co = checkout
@@ -19,3 +21,5 @@
 	name = Mael Regnery
 [commit]
 	gpgsign = true
+[url "ssh://git@github.com/"]
+ insteadOf = https://github.com/
