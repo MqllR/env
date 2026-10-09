@@ -1,1 +1,3 @@
 kubectl
+config/sway/conf.d/*
+!config/sway/conf.d/*.example

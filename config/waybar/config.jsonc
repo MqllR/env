@@ -28,7 +28,8 @@
     "format-wifi": "󰤨 {essid}",
     "format-ethernet": "󰈀 {ipaddr}",
     "format-disconnected": "󰤭 offline",
-    "tooltip-format": "{ifname}: {ipaddr}  ({signalStrength}%)"
+    "tooltip-format": "{ifname}: {ipaddr}  ({signalStrength}%)",
+    "on-click": "nm-connection-editor"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",

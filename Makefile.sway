@@ -51,3 +51,5 @@ config:
 		rm -rf ${HOME}/.config/$$t; \
 		ln -s ${ROOT_DIR}/config/$$t ${HOME}/.config/$$t; \
 	done
+	mkdir -p ${ROOT_DIR}/config/sway/conf.d
+	cp --update=none ${ROOT_DIR}/config/sway/conf.d/outputs.conf.example ${ROOT_DIR}/config/sway/conf.d/outputs.conf

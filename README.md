@@ -28,4 +28,4 @@ make -f Makefile.sway config     # only (re)link configs
 ```
 
 Configs live in `config/<tool>/`; `~/.config/<tool>` is a symlink to it.
-Machine-specific: output names/modes at the bottom of `config/sway/config` (`eDP-1`, `DP-2`) and the untracked wallpaper `~/Pictures/wallpaper.jpg`.
+Machine-specific: `config/sway/conf.d/*.conf` (outputs, untracked, seeded from `*.example`) and the untracked wallpaper `~/Pictures/wallpaper.jpg`.
