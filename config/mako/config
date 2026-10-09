@@ -1,0 +1,40 @@
+# Catppuccin Mocha, rounded
+font=JetBrainsMono Nerd Font 10
+background-color=#1e1e2eee
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+border-size=2
+border-radius=14
+padding=14
+margin=10
+width=360
+height=140
+outer-margin=8
+anchor=top-right
+icons=1
+max-icon-size=48
+icon-border-radius=8
+layer=overlay
+default-timeout=6000
+max-visible=5
+format=<b>%s</b>\n%b
+markup=1
+
+on-button-left=invoke-default-action
+on-button-right=dismiss
+
+[urgency=low]
+border-color=#585b70
+default-timeout=4000
+
+[urgency=high]
+border-color=#f38ba8
+default-timeout=0
+
+[app-name="Claude Code"]
+on-button-left=exec swaymsg '[app_id="Alacritty"] focus' && makoctl dismiss
+
+[desktop-entry=slack_slack]
+border-color=#cba6f7
+on-button-left=exec swaymsg '[class="(?i)slack"] focus' && makoctl dismiss

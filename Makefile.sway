@@ -1,0 +1,53 @@
+# vim:filetype=make
+
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
+NERD_FONT_URL:=https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+CONFIGS:=sway waybar mako rofi
+
+.PHONY: default
+default: packages font dirs config
+
+.PHONY: packages
+packages:
+	sudo apt update
+	sudo apt install -y \
+		alacritty \
+		brightnessctl \
+		grim \
+		mako-notifier \
+		network-manager-gnome \
+		pavucontrol \
+		playerctl \
+		policykit-1-gnome \
+		rofi \
+		slurp \
+		sway \
+		swayidle \
+		swaylock \
+		swaybg \
+		waybar \
+		wireplumber \
+		wl-clipboard \
+		xdg-desktop-portal-gtk \
+		xdg-desktop-portal-wlr
+
+.PHONY: font
+font:
+	@if fc-list | grep -qi "JetBrainsMono Nerd Font"; then echo "JetBrainsMono Nerd Font already installed"; else \
+		mkdir -p ${HOME}/.local/share/fonts/JetBrainsMono && \
+		curl -L ${NERD_FONT_URL} | tar -xJ -C ${HOME}/.local/share/fonts/JetBrainsMono && \
+		fc-cache -f ${HOME}/.local/share/fonts/; \
+	fi
+
+.PHONY: dirs
+dirs:
+	mkdir -p ${HOME}/Pictures/screenshots
+
+.PHONY: config
+config:
+	mkdir -p ${HOME}/.config
+	for t in ${CONFIGS}; do \
+		rm -rf ${HOME}/.config/$$t; \
+		ln -s ${ROOT_DIR}/config/$$t ${HOME}/.config/$$t; \
+	done
