@@ -9,6 +9,4 @@ default:
 		git \
 		gnupg \
 		lsb-release \
-		ripgrep \
-		tmux \
-		vim
+		ripgrep

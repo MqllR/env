@@ -1,7 +1,10 @@
-set -gx EDITOR vim
+set -gx EDITOR nvim
+
+# PATH (equivalent of the entries added by ~/.profile)
+fish_add_path ~/.local/bin ~/bin
 
 for fun in $HOME/.config/fish/functions/mql-*.fish
-  source $fun
+    source $fun
 end
 
 # Theme bobthefish

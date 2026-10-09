@@ -43,6 +43,9 @@ client.focused_inactive #45475a   #1e1e2e    #cdd6f4   #45475a   #45475a
 client.unfocused        #313244   #1e1e2e    #6c7086   #313244   #313244
 client.urgent           #f38ba8   #1e1e2e    #cdd6f4   #f38ba8   #f38ba8
 
+# Switch to the requesting window's workspace on activation (e.g. clicking the Slack tray icon)
+focus_on_window_activation focus
+
 # Toggle gaps on the fly
 bindsym $mod+g exec ~/.config/sway/toggle-gaps.sh
 bindsym $mod+equal gaps inner current plus 5

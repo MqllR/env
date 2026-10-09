@@ -1,6 +1,5 @@
 # vim:filetype=make
 
-# https://github.com/oh-my-fish/oh-my-fish/
 .PHONY: bashrc
 bashrc:
 	mkdir ${HOME}/.bashrc.d ${HOME}/.bash_completion.d
